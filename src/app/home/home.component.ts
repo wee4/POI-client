@@ -15,7 +15,6 @@ import { MessageService } from "app/messages/message.service";
 })
 export class HomeComponent implements OnInit {
 
-
     selectVehicle: Vehicle
 
     vehicles: Vehicle[]

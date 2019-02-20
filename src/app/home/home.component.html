@@ -1,4 +1,39 @@
-<h2>AValiable Cars</h2>
-<ul class="vehicles">
-    <li *ngFor="let vehicle of vehicles">
-</ul>
+<form class="clr-form">
+
+    <label class="clr-control-label">Selecione um carro: </label>
+
+    <select clrSelect name="vehicle">
+        <option value="vehicle" *ngFor="let vehicle of vehicles">{{vehicle.name}} - {{vehicle.board}}
+        </option>
+    </select>
+
+    <div class="clr-form-control">
+        <label>De: </label>
+        <input clrInput type="date" clrDate id="startDate">
+    </div>
+
+    <div class="clr-form-control">
+        <label>Até: </label>
+        <input clrInput type="date" clrDate id="endDate">
+    </div>
+
+    <div>
+        <button class="btn btn-primary" type="submit" (click)="submit()">Pesquisar</button>
+    </div>
+</form>
+
+<clr-datagrid>
+    <clr-dg-column>User ID</clr-dg-column>
+    <clr-dg-column>Name</clr-dg-column>
+    <clr-dg-column>Creation date</clr-dg-column>
+    <clr-dg-column>Favorite color</clr-dg-column>
+
+    <clr-dg-row *ngFor="let user of users">
+        <clr-dg-cell>{{user.id}}</clr-dg-cell>
+        <clr-dg-cell>{{user.name}}</clr-dg-cell>
+        <clr-dg-cell>{{user.creation | date}}</clr-dg-cell>
+        <clr-dg-cell>{{user.color}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{users.length}} users</clr-dg-footer>
+</clr-datagrid>
